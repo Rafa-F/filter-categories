@@ -1,7 +1,9 @@
 import React from 'react';
 
 const SearchInput = ({ onChange }) => (
-  <input type="text" placeholder="Search by App"/>
+  <header>
+    <input type="text" placeholder="Search by App"/>
+  </header>
 );
 
 export default SearchInput;
