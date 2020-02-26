@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import './App.css';
 import data from './data';
 import {Card} from "./components/Card";
+import {NavCategory} from "./components/NavCategory";
+import {SearchInput} from "./components/SearchInput";
+import {Pagination} from "./components/Pagination";
 
 class App extends Component {
   constructor() {
@@ -13,7 +16,10 @@ class App extends Component {
 
   render(){
     return (
-      <div className="App">
+      <div className="flex-container">
+        <NavCategory/>
+        <section className="apps-list">
+          <SearchInput/>
           {data.map((data) => (
             <Card
               key={data.id}
@@ -24,6 +30,8 @@ class App extends Component {
               subscriptions={data.subscriptions}
             />
           ))}
+          <Pagination/>
+        </section>
       </div>
     );
   }
