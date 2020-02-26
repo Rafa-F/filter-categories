@@ -10,17 +10,29 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
+      filteredData: [],
     };
   }
 
+  handleSearch = (search) => {
+    const normalizedSearch = search.toLowerCase();
+    const { data } = this.state;
+    const filteredData = search ===  "" ? data : data.filter((data) =>
+      data.name.toLowerCase().includes(normalizedSearch) || data.categories.toLowerCase().includes(normalizedSearch)
+    );
+    this.setState({ filteredData });
+  };
+
   render(){
+    const {filteredData} = this.state;
+
     return (
       <div className="flex-container">
         <NavCategory/>
         <section className="apps-list">
-          <SearchInput/>
-          {data.map((data) => (
+          <SearchInput onChange={this.handleSearch}/>
+          {filteredData.map((data) => (
             <Card
               key={data.id}
               id={data.id}

@@ -34,7 +34,7 @@ const Card = ({name, description, categories, subscriptions})  => (
                   return(
                     <li>
                       <span>{item.name}</span>
-                      <h3>Free</h3>
+                      <h3>Free<sup/></h3>
                     </li>
                   )
                 } else {

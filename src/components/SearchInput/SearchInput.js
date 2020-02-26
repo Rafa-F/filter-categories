@@ -2,7 +2,7 @@ import React from 'react';
 
 const SearchInput = ({ onChange }) => (
   <header>
-    <input type="text" placeholder="Search by App"/>
+    <input type="text" onChange={(e) => onChange(e.target.value)} placeholder="Search by App"/>
   </header>
 );
 
