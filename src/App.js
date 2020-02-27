@@ -24,7 +24,7 @@ const App = () => {
   return(
     <div className="flex-container">
       <NavCategory/>
-      <section className="apps-list">
+      <section onChange={handleSearch}className="apps-list">
         <SearchInput/>
         {currentCards.map((data) => (
           <Card
@@ -46,13 +46,14 @@ const App = () => {
   );
 };
 
-  /*handleSearch = (search) => {
+  // Agora aqui vais receber o conteudo da search bar
+  handleSearch = (search) => {
     const normalizedSearch = search.toLowerCase();
     const { data } = this.state;
     const filteredData = search ===  "" ? data : data.filter((data) =>
       data.name.toLowerCase().includes(normalizedSearch) || data.categories.toLowerCase().includes(normalizedSearch)
     );
     this.setState({ filteredData });
-  };*/
+  };
 
 export default App;
